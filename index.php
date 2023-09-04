@@ -1,7 +1,5 @@
 <?php
-    if(isset($_GET['browse_drugs_selected&button'])){
-        $value = $_GET['browse_drugs_selected&button'];
-    }
+    include ('database/DBHelper.php');
 ?>
 
 <!DOCTYPE html>
@@ -102,18 +100,18 @@
                     </div>
                 </div>
                     <div id="dropdown1" class="hidden w-full pl-2">
-                        <p class="border-b-2 text-blue-500 py-1">a. Cetrizine(Allecur) Syrup</p>
-                        <p class="border-b-2 text-blue-500 py-1">b. Cetrizine(Allecur) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">c. Cetrizine(Benadryl One) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">d. Cetrizine(Ceticit) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">e. Cetirizine(Alnix) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">f. Cetirizine(Medrizine) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">g. Cetirizine (RiteMED) Jocet -10 Table</p>
-                        <p class="border-b-2 text-blue-500 py-1">h. Cetirizine (Saphzine) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">i. Cetirizine (Tracen) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">j. Cetirizine (Virlix) Tablet</p>
-                        <p class="border-b-2 text-blue-500 py-1">k. Diphenhydramine HCl Syrup (Benadryl)</p>
-                        <p class="border-b-2 text-blue-500 py-1">l. Loratadine (Allerta) Tablet</p>
+                        <?php
+                            $allergy = "SELECT name FROM medicines WHERE category = 'Allergies' ORDER BY name ASC";
+                            $allergyQuery = mysqli_query($con, $allergy);
+                            while($allergyRow = mysqli_fetch_assoc($allergyQuery)) {
+                        ?>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $allergyRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $allergyRow['name']; ?>">
+                            </form>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
@@ -123,7 +121,15 @@
                     </div>
                 </div>
                     <div id="dropdown2" class="hidden w-full">
-                        SAKIT
+                        <?php
+                            $coughAndColds = "SELECT name FROM medicines WHERE category = 'Cough and Colds' ORDER BY name ASC";
+                            $coughAndColdsQuery = mysqli_query($con, $coughAndColds);
+                            while($coughAndColdsRow = mysqli_fetch_assoc($coughAndColdsQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $coughAndColdsRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
@@ -133,7 +139,15 @@
                     </div>
                 </div class="w-full border-b-2">
                     <div id="dropdown3" class="hidden w-full">
-                        SAKIT
+                        <?php
+                            $e = "SELECT name FROM medicines WHERE category = 'ENT Preparations' ORDER BY name ASC";
+                            $eQuery = mysqli_query($con, $e);
+                            while($eRow = mysqli_fetch_assoc($eQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $eRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
@@ -143,98 +157,178 @@
                     </div>
                 </div>
                     <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                        <?php
+                            $feverAndPainRelief = "SELECT name FROM medicines WHERE category = 'Fever and Pain Relief' ORDER BY name ASC";
+                            $feverAndPainReliefQuery = mysqli_query($con, $feverAndPainRelief);
+                            while($feverAndPainReliefRow = mysqli_fetch_assoc($feverAndPainReliefQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $feverAndPainReliefRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>5. Hair and Scalp</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown5')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown5" class="hidden w-full">
+                        <?php
+                            $hairAndScalp = "SELECT name FROM medicines WHERE category = 'Hair and Scalp' ORDER BY name ASC";
+                            $hairAndScalpQuery = mysqli_query($con, $hairAndScalp);
+                            while($hairAndScalpRow = mysqli_fetch_assoc($hairAndScalpQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $hairAndScalpRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>6. Hemorroids</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown6')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown6" class="hidden w-full">
+                        <?php
+                            $hemorroids = "SELECT name FROM medicines WHERE category = 'Hemorrhoids' ORDER BY name ASC";
+                            $hemorroidsQuery = mysqli_query($con, $hemorroids);
+                            while($hemorroidsRow = mysqli_fetch_assoc($hemorroidsQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $hemorroidsRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>7. Liver Protectors</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown7')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown7" class="hidden w-full">
+                        <?php
+                            $liverProtectors = "SELECT name FROM medicines WHERE category = 'Liver Protectors' ORDER BY name ASC";
+                            $liverProtectorsQuery = mysqli_query($con, $liverProtectors);
+                            while($liverProtectorsRow = mysqli_fetch_assoc($liverProtectorsQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $liverProtectorsRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>8. Motion Sickness and Vertigo</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown8')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown8" class="hidden w-full">
+                        <?php
+                            $motionSicknessAndVertigo = "SELECT name FROM medicines WHERE category = 'Motion Sickness and Vertigo' ORDER BY name ASC";
+                            $motionSicknessAndVertigoQuery = mysqli_query($con, $motionSicknessAndVertigo);
+                            while($motionSicknessAndVertigoRow = mysqli_fetch_assoc($motionSicknessAndVertigoQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $motionSicknessAndVertigoRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
                 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>9. Rehydration Solutions</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown9')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown9" class="hidden w-full">
+                        <?php
+                            $rehydrationSolutions = "SELECT name FROM medicines WHERE category = 'Rehydration Solutions' ORDER BY name ASC";
+                            $rehydrationSolutionsQuery = mysqli_query($con, $rehydrationSolutions);
+                            while($rehydrationSolutionsRow = mysqli_fetch_assoc($rehydrationSolutionsQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $rehydrationSolutionsRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>10. Stomach and Intestinal Disorders</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown10')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown10" class="hidden w-full">
+                        <?php
+                            $stomachDisorders = "SELECT name FROM medicines WHERE category = 'Stomach and intestinal disorders' ORDER BY name ASC";
+                            $stomachDisordersQuery = mysqli_query($con, $stomachDisorders);
+                            while($stomachDisordersRow = mysqli_fetch_assoc($stomachDisordersQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $stomachDisordersRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
             </div>
             <div id="right" class="w-1/3">
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>11. Topical Products</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown11')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown11" class="hidden w-full">
+                        <?php
+                            $topicalProducts = "SELECT name FROM medicines WHERE category = 'Topical products' ORDER BY name ASC";
+                            $topicalProductsQuery = mysqli_query($con, $topicalProducts);
+                            while($topicalProductsRow = mysqli_fetch_assoc($topicalProductsQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $topicalProductsRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
                 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>12. Weigth Management</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown12')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown12" class="hidden w-full">
+                        <?php
+                            $topicalProducts = "SELECT name FROM medicines WHERE category = 'Weight management' ORDER BY name ASC";
+                            $topicalProductsQuery = mysqli_query($con, $topicalProducts);
+                            while($topicalProductsRow = mysqli_fetch_assoc($topicalProductsQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $topicalProductsRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
 
                 <div class="w-full border-b-2">
                     <div class="w-full flex justify-between items-center">
                         <p>13. Wound Care</p>
-                        <button onclick="show('dropdown4')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
+                        <button onclick="show('dropdown13')"><i class="fa-solid fa-plus float-right text-xs"></i></button>
                     </div>
                 </div>
-                    <div id="dropdown4" class="hidden w-full">
-                        SAKIT
+                    <div id="dropdown13" class="hidden w-full">
+                        <?php
+                            $woundCare = "SELECT name FROM medicines WHERE category = 'Wound care' ORDER BY name ASC";
+                            $woundCareQuery = mysqli_query($con, $woundCare);
+                            while($woundCareRow = mysqli_fetch_assoc($woundCareQuery)) {
+                        ?>
+                            <p class="border-b-2 text-blue-500 py-1"><?php echo $woundCareRow['name']; ?></p>
+                        <?php
+                            }
+                        ?>
                     </div>
             </div>
         </div>
