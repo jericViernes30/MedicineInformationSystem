@@ -60,8 +60,8 @@ if (isset($_GET['medicine'])) {
             <p class="text-md text-blue-500"><?php echo $genericName = $view->getGenericName(); ?></p>
         </div>
         <div class="flex flex-col gap-1 mb-4">
-            <p>Manufacturer: <span class="text-blue-500"><?php $medicine['manufacturer'] ?></span></p>
-            <p>Distributor: <span class="text-blue-500"><?php echo $distributor ?></span></p>
+            <p>Manufacturer: <span class="text-blue-500"><?php echo $medicineName = $view->getManufacturer(); ?></span></p>
+            <p>Distributor: <span class="text-blue-500"><?php echo $medicineName = $view->getDistributor(); ?></span></p>
         </div>
     </div>
     <div class="w-[80%] mx-auto mb-4 flex gap-5">
@@ -86,11 +86,11 @@ if (isset($_GET['medicine'])) {
             <p class="text-2xl font-bold mb-5">Full Prescribing Information</p>
             <div class="mb-4">
                 <p class="font-semibold text-lg">Contents</p>
-                <p><?php echo $contents ?></p>
+                <p><?php echo $medicineName = $view->getContents(); ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Description</p>
-                <p><?php echo $description ?></p>
+                <p><?php echo $medicineName = $view->getDescription(); ?>></p>
             </div>
             <!-- <div class="mb-6">
                 <p class="font-semibold text-lg">Action</p>
@@ -98,43 +98,47 @@ if (isset($_GET['medicine'])) {
             </div> -->
             <div class="mb-6">
                 <p class="font-semibold text-lg">Indications/Uses</p>
-                <p><?php echo $indications ?></p>
+                <p><?php echo $medicineName = $view->getIndications(); ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Dosage/Directions for Use</p>
-                <p><?php echo $dosage; ?></span>
+                <p><?php echo $medicineName = $view->getDosage(); ?></span>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Overdosage</p>
-                <p><?php echo $overdosage; ?></p>
+                <p><?php echo $medicineName = $view->getOverdosage(); ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Contraindications</p>
-                <p><?php echo $contraindications ?></p>
+                <p><?php echo $medicineName = $view->getContraindications(); ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Special Precautions</p>
-                <p><?php echo $special_precautions ?></p>
+                <p><?php echo $medicineName = $view->getSpecialPrecautions(); ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Adverse Reactions</p>
-                <p><?php echo $adverse_precautions ?></p>
+                <p><?php echo $medicineName = $view->getAdversePrecautions(); ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Drug Interactions</p>
-                <p><?php echo $drug_interactions ?></p>
+                <p><?php echo $medicineName = $view->getDrugInteractions(); ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Storage</p>
-                <p><?php echo $storage ?></p>
+                <?php
+                $medicineName = $view->getStorage();
+                $storage = str_replace('?', '°', $medicineName);
+                ?>
+                <p><?php echo $storage; ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Classification</p>
-                <p class="text-blue-500"><?php echo $classification ?></p>
+                <p class="text-blue-500"><?php echo $medicineName = $view->getClassification(); ?></p>
             </div>
             <div class="mb-4">
                 <p class="font-semibold text-lg text-red-500">Regulatory Classification</p>
-                <p><?php echo $regulatory_classification; ?></p>
+                <p><?php echo $medicineName = $view->getRegulatoryClassification(); ?></p>
             </div>
         </div>
     </div>

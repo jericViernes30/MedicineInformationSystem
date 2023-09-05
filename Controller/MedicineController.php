@@ -14,7 +14,6 @@ class MedicineController {
     }
 
     private function getDbConnection() {
-        // Replace with your database connection code
         $conn = new mysqli("localhost", "root", "", "otcmedicineis");
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
