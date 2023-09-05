@@ -1,14 +1,18 @@
 <?php
 class MedicineModel {
-    private $db;
+    private $conn;
 
-    public function __construct($db) {
-        $this->db = $db;
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
 
-    public function getMedicineInfo($medicineName) {
-        // Implement your database query here using prepared statements.
-        // Return the result or false in case of an error.
+    public function getMedicineByName($name) {
+        $query = "SELECT * FROM medicines WHERE name = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $name);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
     }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-    include ('database/DBHelper.php');
+    include ('database/db.php');
 ?>
 
 <!DOCTYPE html>

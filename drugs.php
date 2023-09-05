@@ -1,36 +1,17 @@
 <?php
-    include 'database/DBHelper.php';
+include 'Controller/MedicineController.php';
+include 'Views/MedicineView.php';
 
-    if($_SERVER['REQUEST_METHOD'] =='GET'){
-        if(isset($_GET['medicine'])){
-            $medicineName = $_GET['medicine'];
+if (isset($_GET['medicine'])) {
+    $name = $_GET['medicine'];
 
-            $medicine = "SELECT * FROM medicines WHERE name = '$medicineName'";
-            $medicineQuery = mysqli_query($con, $medicine);
+    $controller = new MedicineController();
+    $medicine = $controller->getMedicineByName($name);
 
-            while($row = mysqli_fetch_assoc($medicineQuery)){
-                $name = $row['name'];
-                $generic_name = $row['generic_name'];
-                $manufacturer = $row['manufcaturer'];
-                $distributor = $row['distributor'];
-                $category = $row['category'];
-                $contents = $row['contents'];
-                $description = $row['description'];
-                $indications = $row['indications'];
-                $dosage = $row['dosage'];
-                $overdosage = $row['overdosage'];
-                $contraindications = $row['contraindications'];
-                $special_precautions = $row['special_precautions'];
-                $adverse_precautions = $row['adverse_precautions'];
-                $drug_interactions = $row['drug_interactions'];
-                $storage = $row['storage'];
-                $classification = $row['classification'];
-                $regulatory_classification = $row['regulatory_classification'];
-            }
-        } else {
-            echo 'NO';
-        }
-    }
+    $view = new MedicineView();
+    $view->displayMedicine($medicine);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -75,11 +56,11 @@
     </div>
     <div class="w-[80%] mx-auto border-b-2 border-black mb-4">
         <div class="mb-5">
-            <p class="text-2xl font-bold"><?php echo $name ?></p>
-            <p class="text-md text-blue-500"><?php echo $generic_name ?></p>
+            <p class="text-2xl font-bold"><?php echo $medicineName = $view->getMedName(); ?></p>
+            <p class="text-md text-blue-500"><?php echo $genericName = $view->getGenericName(); ?></p>
         </div>
         <div class="flex flex-col gap-1 mb-4">
-            <p>Manufacturer: <span class="text-blue-500"><?php echo $manufacturer ?></span></p>
+            <p>Manufacturer: <span class="text-blue-500"><?php $medicine['manufacturer'] ?></span></p>
             <p>Distributor: <span class="text-blue-500"><?php echo $distributor ?></span></p>
         </div>
     </div>
@@ -163,3 +144,4 @@
     </div>
 </body>
 </html>
+
