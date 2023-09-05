@@ -1,13 +1,15 @@
 <?php
 
-$server = "localhost";
-$user = "root";
-$password = "";
-$dbName = "otcmedicineis";
-
-$con = mysqli_connect($server, $user, $password, $dbName);
-
-if(!$con){
-    echo 'Not connected to Database';
+class DatabaseHandler{
+    protected function connect(){
+        try{
+            $username = "root";
+            $password = "";
+            $dbh = new PDO('mysql:host=localhost; dbname = otcmedicineis', $username, $password);
+        } catch (PDOException $e) {
+            echo "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
 }
 ?>

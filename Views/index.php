@@ -126,7 +126,10 @@
                             $coughAndColdsQuery = mysqli_query($con, $coughAndColds);
                             while($coughAndColdsRow = mysqli_fetch_assoc($coughAndColdsQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $coughAndColdsRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $coughAndColdsRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $coughAndColdsRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>

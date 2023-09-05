@@ -141,7 +141,7 @@
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Drug Interactions</p>
-                <p><?php $drug_interactions ?></p>
+                <p><?php echo $drug_interactions ?></p>
             </div>
             <div class="mb-6">
                 <p class="font-semibold text-lg">Storage</p>
