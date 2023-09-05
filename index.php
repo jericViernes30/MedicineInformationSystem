@@ -45,7 +45,7 @@
             <div class="w-2/3 flex gap-10">
                 <div class="w-full relative">
                 <input type="text" name="search" placeholder="Enter Drug Name, Manufacturer, etc." class="w-full py-2 pl-10 pr-4 bg-white rounded-sm text-gray-800 focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
-                <i class="fa-solid fa-magnifying-glass text-blue-500 absolute left-3 top-3 h-5 w-5 text-blue-500"></i>
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 h-5 w-5 text-blue-500"></i>
                 </div>
                 <button class="rounded-sm py-2 px-6 bg-slate-50">Search</button>
             </div>
@@ -147,7 +147,10 @@
                             $eQuery = mysqli_query($con, $e);
                             while($eRow = mysqli_fetch_assoc($eQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $eRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $eRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $eRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -165,7 +168,10 @@
                             $feverAndPainReliefQuery = mysqli_query($con, $feverAndPainRelief);
                             while($feverAndPainReliefRow = mysqli_fetch_assoc($feverAndPainReliefQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $feverAndPainReliefRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $feverAndPainReliefRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $feverAndPainReliefRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -183,7 +189,10 @@
                             $hairAndScalpQuery = mysqli_query($con, $hairAndScalp);
                             while($hairAndScalpRow = mysqli_fetch_assoc($hairAndScalpQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $hairAndScalpRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $hairAndScalpRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $hairAndScalpRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -201,7 +210,10 @@
                             $hemorroidsQuery = mysqli_query($con, $hemorroids);
                             while($hemorroidsRow = mysqli_fetch_assoc($hemorroidsQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $hemorroidsRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $hemorroidsRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $hemorroidsRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -219,7 +231,10 @@
                             $liverProtectorsQuery = mysqli_query($con, $liverProtectors);
                             while($liverProtectorsRow = mysqli_fetch_assoc($liverProtectorsQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $liverProtectorsRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $liverProtectorsRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $liverProtectorsRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -237,7 +252,10 @@
                             $motionSicknessAndVertigoQuery = mysqli_query($con, $motionSicknessAndVertigo);
                             while($motionSicknessAndVertigoRow = mysqli_fetch_assoc($motionSicknessAndVertigoQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $motionSicknessAndVertigoRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $motionSicknessAndVertigoRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $motionSicknessAndVertigoRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -255,7 +273,10 @@
                             $rehydrationSolutionsQuery = mysqli_query($con, $rehydrationSolutions);
                             while($rehydrationSolutionsRow = mysqli_fetch_assoc($rehydrationSolutionsQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $rehydrationSolutionsRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $rehydrationSolutionsRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $rehydrationSolutionsRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -273,7 +294,10 @@
                             $stomachDisordersQuery = mysqli_query($con, $stomachDisorders);
                             while($stomachDisordersRow = mysqli_fetch_assoc($stomachDisordersQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $stomachDisordersRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $stomachDisordersRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $stomachDisordersRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -292,7 +316,10 @@
                             $topicalProductsQuery = mysqli_query($con, $topicalProducts);
                             while($topicalProductsRow = mysqli_fetch_assoc($topicalProductsQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $topicalProductsRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $topicalProductsRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $topicalProductsRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -306,11 +333,14 @@
                 </div>
                     <div id="dropdown12" class="hidden w-full">
                         <?php
-                            $topicalProducts = "SELECT name FROM medicines WHERE category = 'Weight management' ORDER BY name ASC";
-                            $topicalProductsQuery = mysqli_query($con, $topicalProducts);
-                            while($topicalProductsRow = mysqli_fetch_assoc($topicalProductsQuery)) {
+                            $weightManagement = "SELECT name FROM medicines WHERE category = 'Weight management' ORDER BY name ASC";
+                            $weightManagementQuery = mysqli_query($con, $topicalProducts);
+                            while($weightManagementRow = mysqli_fetch_assoc($weightManagementQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $topicalProductsRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $weightManagementRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $weightManagementRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
@@ -328,7 +358,10 @@
                             $woundCareQuery = mysqli_query($con, $woundCare);
                             while($woundCareRow = mysqli_fetch_assoc($woundCareQuery)) {
                         ?>
-                            <p class="border-b-2 text-blue-500 py-1"><?php echo $woundCareRow['name']; ?></p>
+                            <form action="drugs.php" method="GET">
+                            <button class="border-b-2 text-blue-500 py-1 w-full text-left hover:bg-slate-100"><?php echo $woundCareRow['name']; ?></button>
+                            <input type="hidden" name="medicine" value="<?php echo $woundCareRow['name']; ?>">
+                            </form>
                         <?php
                             }
                         ?>
