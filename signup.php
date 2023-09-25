@@ -56,19 +56,19 @@
                         </div>
                     </div>
                     <div class="mb-5">
-                        <label for=""><span class="text-red-500">*</span> Email Address</label>
+                        <label for="" class="mb-2"><span class="text-red-500">*</span> Email Address</label>
                         <input type="email" name="email" required class="w-full py-1 px-2">
                     </div>
                     <div class="mb-5">
-                        <label for=""><span class="text-red-500">*</span> Password</label>
+                        <label for="" class="mb-2"><span class="text-red-500">*</span> Password</label>
                         <input type="password" name="password" required placeholder="******" class="w-full py-1 px-2">
                     </div>
                     <div class="mb-5">
-                        <label for=""><span class="text-red-500">*</span> Country of Practice</label>
+                        <label for="" class="mb-2"><span class="text-red-500">*</span> Country of Practice</label>
                         <input type="email" name="email" required class="w-full py-1 px-2">
                     </div>
                     <div class="mb-3">
-                        <label for=""><span class="text-red-500">*</span> Profession</label>
+                        <label for="" class="mb-2"><span class="text-red-500">*</span> Profession</label>
                         <input type="email" name="email" required class="w-full py-1 px-2">
                     </div>
                     <hr>
@@ -87,7 +87,7 @@
                             <p class="captcha">Privacy - Terms</p>
                         </div>
                     </div>
-                    <button class="w-1/3 py-2 font-semibold bg-red-500 text-white">Create My Account</button>
+                    <button class="w-1/3 py-2 font-semibold bg-red-500 text-white rounded-md">Create My Account</button>
                 </form>
             </div>
             <div class="w-1/4 flex flex-col">
