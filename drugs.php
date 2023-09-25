@@ -2,6 +2,8 @@
 include 'Controller/MedicineController.php';
 include 'Views/MedicineView.php';
 
+
+
 if (isset($_GET['medicine'])) {
     $name = $_GET['medicine'];
 
@@ -11,7 +13,6 @@ if (isset($_GET['medicine'])) {
     $view = new MedicineView();
     $view->displayMedicine($medicine);
 }
-
 ?>
 
 <!DOCTYPE html>

@@ -58,9 +58,9 @@
 
         <p class="text-xl">Browse Drugs (A to Z)</p>
         <div class="flex mx-auto">
-            <form action="" method="GET">
-                <button name="browse_drugs_selected&button" class="border-2 w-8 h-8" value="A">A</button>
-                <button name="browse_drugs_selected&button" class="border-2 w-8 h-8" value="B">B</button>
+            <form action="browse.php" method="GET">
+                <button name="button_selected" class="border-2 w-8 h-8" value="A">A</button>
+                <button name="button_selected" class="border-2 w-8 h-8" value="B">B</button>
                 <button class="border-2 w-8 h-8">C</button>
                 <button class="border-2 w-8 h-8">D</button>
                 <button class="border-2 w-8 h-8">E</button>
@@ -369,10 +369,9 @@
             </div>
         </div>
     </div>
-    <div class="w-full bg-slate-700 flex items-center justify-around">
-        <img src="img/logo.png" alt="" class="max-w-[3%]">
-        <p class="text-white text-xs">Copyright © 2023 MediGuide Pte Ltd. All rights reserved. </p>
-    </div>
+    <?php
+        include 'footer.php';
+    ?>
     <script>
         
         function show(dd){
