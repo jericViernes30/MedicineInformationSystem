@@ -3,6 +3,6 @@
 $server = 'localhost';
 $user = 'root';
 $pass = '';
-$dbname = 'otcmedicineis';
+$dbname = 'medicine_information_system';
 
 $con = mysqli_connect($server, $user, $pass, $dbname); 

@@ -1,8 +1,8 @@
 <?php
     session_start();
     include ('database/db.php');
-
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" || isset($_POST['login'])) {
         // Retrieve user input from the login form
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -46,6 +46,7 @@
             echo "Both email and password are required.";
         }
     }
+}
 ?>
 
 <!DOCTYPE html>

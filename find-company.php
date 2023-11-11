@@ -101,7 +101,11 @@
                 <?php
                     while($row = mysqli_fetch_assoc($result)){
                 ?>
+
                 <form action="company.php" method="GET" class="">
+
+                <form action="manufacturer.php" method="GET" class="">
+
                     <button name="selected" class="w-[200px] flex flex-col items-center border-2">
                         <div class="shadow-md w-full h-[200px] p-4 flex items-center justify-center">
                             <img src="img/manufacturer/<?php echo $row['image'];?>.png" alt="" class="w-full">

@@ -16,6 +16,7 @@
     <script src="https://kit.fontawesome.com/5bf9be4e76.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Find Drugs | MediGuide</title>
     <style>
         *{
@@ -49,9 +50,17 @@
             <div class="w-2/3 flex gap-10">
                 <div class="w-full relative">
                 <input type="text" name="search" placeholder="Enter Drug Name, Manufacturer, etc." class="w-full py-2 pl-10 pr-4 bg-white rounded-sm text-gray-800 focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
+        <div class="w-2/3 mx-auto flex flex-col py-10 relative">
+            <p class="text-2xl font-semibold text-white pb-2">Find Drugs</p>
+            <div class="w-2/3 flex gap-10 relative">
+                <div class="w-full relative">
+                <input id="medicine_search" type="text" placeholder="Enter Drug Name, Manufacturer, etc." class="w-full py-2 pl-10 pr-4 bg-white rounded-sm text-gray-800 focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
                 <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 h-5 w-5 text-blue-500"></i>
                 </div>
                 <button class="rounded-sm py-2 px-6 bg-slate-50">Search</button>
+            </div>
+            <div id="search_result" class="w-2/3 relative pb-5 mt-2 hidden">
+                
             </div>
         </div>
     </div>
@@ -377,6 +386,27 @@
         include 'footer.php';
     ?>
     <script>
+        $(document).ready(function(){
+            $("#medicine_search").keyup(function(){
+                var searchResult = document.getElementById('search_result')
+                var input = $(this).val();
+
+                if(input != ''){
+                    searchResult.style.display = 'block'
+                    $.ajax({
+                        url:"medicine_search.php",
+                        method:'GET',
+                        data:{input:input},
+
+                        success:function(data){
+                            $('#search_result').html(data)
+                        }
+                    })
+                } else {
+                    searchResult.style.display = 'none'
+                }
+            })
+        })
         function show(dd){
             var x = document.getElementById(dd)
             if(x.style.display === "" || x.style.display === "none"){

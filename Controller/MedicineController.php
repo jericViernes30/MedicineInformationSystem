@@ -14,7 +14,7 @@ class MedicineController {
     }
 
     private function getDbConnection() {
-        $conn = new mysqli("localhost", "root", "", "otcmedicineis");
+        $conn = new mysqli("localhost", "root", "", "medicine_information_system");
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
