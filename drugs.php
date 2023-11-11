@@ -1,6 +1,9 @@
 <?php
-include 'Controller/MedicineController.php';
-include 'Views/MedicineView.php';
+    session_start();
+    include ('database/db.php');
+    include ('session.php');
+    include 'Controller/MedicineController.php';
+    include 'Views/MedicineView.php';
 
 
 
@@ -26,7 +29,8 @@ if (isset($_GET['medicine'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5bf9be4e76.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <title>Drug Information | MediGuide</title>
     <style>
         *{
             font-family: 'Poppins', sans-serif;
@@ -36,9 +40,10 @@ if (isset($_GET['medicine'])) {
 <body>
     <div class="w-full flex flex-col bg-slate-50 border-b-4 border-b-blue-600">
         <div class="container flex justify-end px-10 py-1 gap-x-14 text-sm">
-            <div class="flex gap-1 items-center"><i class="fa-solid fa-location-dot text-blue-500"></i>Region</div>
+            <div class="flex gap-1 items-center"><i class="fa-solid fa-location-dot text-blue-500"></i><?php echo $region; ?></div>
             <div class="flex gap-1 items-center"><i class="fa-solid fa-magnifying-glass text-blue-500"></i>Search</div>
-            <div class="flex gap-1 items-center"><i class="fa-solid fa-user text-blue-500"></i>Viernes,</div>
+            <button class="flex gap-1 items-center"><i class="fa-solid fa-user text-blue-500"></i><?php echo $last_name; ?>,</button>
+            <form class="flex gap-1 items-center" action="logout.php" method="POST"><i class="fa-solid fa-arrow-right-from-bracket text-blue-500"></i><input type="submit" name="logout" value="Logout" class="hover:cursor-pointer"></form>
         </div>
         <div class="w-full flex items-center justify-center p-2">
             <img src="img/logo.png" alt="" class="max-w-[2%]">
@@ -47,9 +52,9 @@ if (isset($_GET['medicine'])) {
     </div>
     <div class="w-full bg-slate-700 mb-5">
         <div class="container w-2/3 mx-auto flex justify-center gap-12 text-slate-50 py-2">
-            <div><p class="hover:text-blue-500 ease-out duration-200">Home</p></div>
-            <div><p class="hover:text-blue-500 ease-out duration-200">Find Drug</p></div>
-            <div><p class="hover:text-blue-500 ease-out duration-200">Find Drug Company</p></div>
+            <div><button onclick="window.location.href='home.php'" class="hover:text-blue-500 ease-out duration-200">Home</button></div>
+            <div><button onclick="window.location.href='find-drugs.php'" class="hover:text-blue-500 ease-out duration-200">Find Drugs</button></div>
+            <div><button onclick="window.location.href='find-company.php'" class="hover:text-blue-500 ease-out duration-200">Find Drug Company</button></div>
         </div>
     </div>
     <div class="w-4/6 mx-auto mb-10">
