@@ -5,7 +5,7 @@ class DatabaseHandler{
         try{
             $username = "root";
             $password = "";
-            $dbh = new PDO('mysql:host=localhost; dbname=otcmedicineis', $username, $password);
+            $dbh = new PDO('mysql:host=localhost; dbname=medicine_information_system', $username, $password);
             return $dbh;
         } catch (PDOException $e) {
             echo "Error!: " . $e->getMessage() . "<br/>";

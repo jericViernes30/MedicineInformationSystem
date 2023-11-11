@@ -33,7 +33,7 @@ class MedicineView {
             $this->overdosage = $medicine['overdosage'];
             $this->contraindications = $medicine['contraindications'];
             $this->specialprecautions = $medicine['special_precautions'];
-            $this->adverseprecautions = $medicine['adverse_precautions'];
+            $this->adverseprecautions = $medicine['adverse_reactions'];
             $this->druginteractions = $medicine['drug_interactions'];
             $this->storage = $medicine['storage'];
             $this->classification = $medicine['classification'];

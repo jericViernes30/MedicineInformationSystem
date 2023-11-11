@@ -1,3 +1,37 @@
+<?php
+    include ('database/db.php');
+
+    if(isset($_POST['create'])&& isset($_POST['notRobot']) && isset($_POST['agree']) && $_SERVER["REQUEST_METHOD"] == "POST"){
+        // Prepare and bind the SQL statement
+        $stmt = mysqli_prepare($con, "INSERT INTO users (title, first_name, last_name, email, password, countryOfPractice, profession) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    
+        // Bind parameters with the form data
+        mysqli_stmt_bind_param($stmt, "sssssss", $title, $first_name, $last_name, $email, $password, $countryOfPractice, $profession);
+    
+        // Set the variables with the form data
+        $title = $_POST["title"];
+        $first_name = $_POST["first_name"];
+        $last_name = $_POST["last_name"];
+        $email = $_POST["email"];
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
+        $countryOfPractice = $_POST["countryOfPractice"];
+        $profession = $_POST["profession"];
+    
+        // Execute the prepared statement
+        if (mysqli_stmt_execute($stmt)) {
+            // Data inserted successfully
+            echo "User registration successful.";
+            header("location: index.php");
+        } else {
+            // Error occurred
+            echo "Error: " . mysqli_error($con);
+        }
+    
+        // Close the statement and the connection
+        mysqli_stmt_close($stmt);
+        mysqli_close($con);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +42,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5bf9be4e76.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <title>Signup | MediGuide</title>
     <style>
         p{
             font-family: 'Poppins', sans-serif;
@@ -33,17 +68,17 @@
             <div class="w-9/12">
                 <p class="text-lg font-semibold mb-6">Sign up for a free MediGuide account today</p>
                 <p class="text-sm mb-4">Get unlimited access to locally-approved drug information, medical news and disease treament guidelines on the go!</p>
-                <form action="">
+                <form action="" method="POST">
                     <div class="flex justify-between gap-4 mb-5">
                         <div class="w-1/3 flex flex-col gap-2">
                             <label for=""><span class="text-red-500">*</span> Title</label>
                             <select name="title" id="" class="py-1 px-2">
                                 <option value="" disabled selected>Select your Title</option>
-                                <option value="">Professor</option>
-                                <option value="">Doctor</option>
-                                <option value="">Student</option>
-                                <option value="">Mister</option>
-                                <option value="">Miss</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Student">Student</option>
+                                <option value="Mister">Mister</option>
+                                <option value="Miss">Miss</option>
                             </select>
                         </div>
                         <div class="w-1/3 flex flex-col gap-2">
@@ -65,11 +100,11 @@
                     </div>
                     <div class="mb-5">
                         <label for="" class="mb-2"><span class="text-red-500">*</span> Country of Practice</label>
-                        <input type="email" name="email" required class="w-full py-1 px-2">
+                        <input type="text" name="countryOfPractice" required class="w-full py-1 px-2">
                     </div>
                     <div class="mb-3">
                         <label for="" class="mb-2"><span class="text-red-500">*</span> Profession</label>
-                        <input type="email" name="email" required class="w-full py-1 px-2">
+                        <input type="text" name="profession" required class="w-full py-1 px-2">
                     </div>
                     <hr>
                     <div class="mt-3 flex items-center gap-2 mb-4">
@@ -78,7 +113,7 @@
                     </div>
                     <div class="border-2 bg-slate-100 w-1/3 flex items-center justify-evenly px-2 py-1 gap-3 mb-16">
                         <div class="flex gap-3 items-center">
-                            <input type="checkbox" class="transform scale-150">
+                            <input type="checkbox" class="transform scale-150" name="notRobot">
                             <label for="" class="text-sm">I'm not a robot</label>
                         </div>
                         <div class="flex flex-col justify-center items-center">
@@ -87,7 +122,7 @@
                             <p class="captcha">Privacy - Terms</p>
                         </div>
                     </div>
-                    <button class="w-1/3 py-2 font-semibold bg-red-500 text-white rounded-md">Create My Account</button>
+                    <button name="create" class="w-1/3 py-2 font-semibold bg-red-500 text-white rounded-md">Create My Account</button>
                 </form>
             </div>
             <div class="w-1/4 flex flex-col">
