@@ -15,12 +15,24 @@ require 'vendor/autoload.php';
         // Set the variables with the form data
         $first_name = $_POST["first_name"];
         $last_name = $_POST["last_name"];
+<<<<<<< HEAD
         $email = $_POST['email'];
         $password = $_POST['password'];
         $contact = $_POST['contact'];
 
         if (preg_match($name_pattern, $first_name)) {
             $checked_first_name = $first_name;
+=======
+        $email = $_POST["email"];
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
+        $countryOfPractice = $_POST["countryOfPractice"];
+        $profession = $_POST["profession"];
+    
+        // Execute the prepared statement
+        if (mysqli_stmt_execute($stmt)) {
+            // Data inserted successfully
+            echo "User registration successful.";
+>>>>>>> 9a94872e617a2a505c8cb202f9261ef20c3dc9aa
         } else {
             $isValidFirstName = false;
         }

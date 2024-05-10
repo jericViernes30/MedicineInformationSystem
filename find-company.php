@@ -81,6 +81,33 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+=======
+        <div class="w-2/3 mx-auto mb-5">
+            <p class="text-lg font-semibold mb-5">Feature Companies</p>
+            <div class="w-full flex flex-wrap gap-5 justify-evenly">
+                <?php
+                    while($row = mysqli_fetch_assoc($result)){
+                ?>
+
+                <form action="company.php" method="GET" class="">
+
+                <form action="manufacturer.php" method="GET" class="">
+
+                    <button name="selected" class="w-[200px] flex flex-col items-center border-2">
+                        <div class="shadow-md w-full h-[200px] p-4 flex items-center justify-center">
+                            <img src="img/manufacturer/<?php echo $row['image'];?>.png" alt="" class="w-full">
+                        </div>
+                        <p class="text-center bg-gray-200 w-full h-[70px] pt-2 text-sm"><?php echo $row['name'];?></p>
+                        <input type="hidden" name="manufacturer" value="<?php echo $row['name'];?>">
+                    </button>
+                </form>
+                <?php } ?>
+
+            </div>
+        </div>
+
+>>>>>>> 9a94872e617a2a505c8cb202f9261ef20c3dc9aa
     <?php include 'footer.php' ?>
     <script>
         $(document).ready(function(){

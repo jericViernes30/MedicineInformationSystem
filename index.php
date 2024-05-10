@@ -1,7 +1,7 @@
 <?php
     session_start();
     include ('database/db.php');
-
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST" || isset($_POST['login'])) {
         // Retrieve user input from the login form
         $email = $_POST['email'];
@@ -52,7 +52,11 @@
             echo '<script>alert("Both email and password are required."); window.location.href = "index.php";</script>';
         }
     }
+<<<<<<< HEAD
     
+=======
+}
+>>>>>>> 9a94872e617a2a505c8cb202f9261ef20c3dc9aa
 ?>
 
 <!DOCTYPE html>

@@ -42,11 +42,35 @@
 
         </div>
     </div>
+<<<<<<< HEAD
     <div id="body">
         <div class="w-full flex flex-col bg-slate-50 border-b-4 border-b-green-500">
             <div class="container flex justify-end px-10 py-1 gap-x-24 text-sm">
                 <button onclick="openProfile()" id="nameBtn" class="flex gap-1 items-center"><i class="fa-solid fa-user text-green-500"></i><?php echo $last_name; ?>,</button>
                 <form class="flex gap-1 items-center" action="logout.php" method="POST"><i class="fa-solid fa-arrow-right-from-bracket text-green-500"></i><input type="submit" name="logout" value="Logout" class="hover:cursor-pointer"></form>
+=======
+    <div class="w-full bg-slate-700">
+        <div class="container w-2/3 mx-auto flex justify-center gap-12 text-slate-50 py-2">
+            <div><button onclick="window.location.href='home.php'" class="hover:text-blue-500 ease-out duration-200">Home</button></div>
+            <div><button onclick="window.location.href='find-drugs.php'" class="hover:text-blue-500 ease-out duration-200">Find Drugs</button></div>
+            <div><button onclick="window.location.href='find-company.php'" class="hover:text-blue-500 ease-out duration-200">Find Drug Company</button></div>
+        </div>
+    </div>
+    <div class="w-full bg-blue-600">
+        <div class="w-2/3 mx-auto flex flex-col py-10">
+            <p class="text-2xl font-semibold text-white pb-2">Find Drugs</p>
+            <div class="w-2/3 flex gap-10">
+                <div class="w-full relative">
+                <input type="text" name="search" placeholder="Enter Drug Name, Manufacturer, etc." class="w-full py-2 pl-10 pr-4 bg-white rounded-sm text-gray-800 focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
+        <div class="w-2/3 mx-auto flex flex-col py-10 relative">
+            <p class="text-2xl font-semibold text-white pb-2">Find Drugs</p>
+            <div class="w-2/3 flex gap-10 relative">
+                <div class="w-full relative">
+                <input id="medicine_search" type="text" placeholder="Enter Drug Name, Manufacturer, etc." class="w-full py-2 pl-10 pr-4 bg-white rounded-sm text-gray-800 focus:outline-none focus:shadow-outline-blue focus:border-blue-300">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 h-5 w-5 text-blue-500"></i>
+                </div>
+                <button class="rounded-sm py-2 px-6 bg-slate-50">Search</button>
+>>>>>>> 9a94872e617a2a505c8cb202f9261ef20c3dc9aa
             </div>
             <div class="w-full flex items-center justify-center p-2">
                 <img src="img/logo.png" alt="" class="max-w-[2%]">
@@ -423,7 +447,6 @@
                 }
             })
         })
-
         function show(dd){
             var x = document.getElementById(dd)
             if(x.style.display === "" || x.style.display === "none"){
