@@ -7,7 +7,7 @@ class MedicineModel {
     }
 
     public function getMedicineByName($name) {
-        $query = "SELECT * FROM medicines WHERE name = ?";
+        $query = "SELECT * FROM medicines WHERE generic_name = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("s", $name);
         $stmt->execute();

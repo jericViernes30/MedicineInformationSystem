@@ -16,7 +16,10 @@ class MedicineView {
     private $druginteractions;
     private $storage;
     private $classification;
-    private $regulatoryclassification;
+    private $stocks;
+    private $packing;
+    private $visible;
+    private $type;
 
     public function displayMedicine($medicine) {
         
@@ -37,7 +40,10 @@ class MedicineView {
             $this->druginteractions = $medicine['drug_interactions'];
             $this->storage = $medicine['storage'];
             $this->classification = $medicine['classification'];
-            $this->regulatoryclassification = $medicine['regulatory_classification'];
+            $this->packing = $medicine['generic_name'];
+            $this->stocks = $medicine['stocks'];
+            $this->visible = $medicine['visible'];
+            $this->type = $medicine['type'];
         
         } else {
             echo "Medicine not found.";
@@ -108,8 +114,20 @@ class MedicineView {
         return $this->classification;
     }
 
-    public function getRegulatoryClassification(){
-        return $this->regulatoryclassification;
+    public function getPacking(){
+        return $this->packing;
+    }
+
+    public function getStocks(){
+        return $this->stocks;
+    }
+
+    public function isVisible(){
+        return $this->visible;
+    }
+
+    public function getType(){
+        return $this->type;
     }
 }
 ?>
