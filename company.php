@@ -49,14 +49,13 @@
         </div>
         <div class="w-full flex items-center justify-center p-2">
             <img src="img/logo.png" alt="" class="max-w-[2%]">
-            <p class="font-semibold">MediGuide</p>
+            <p class="font-semibold text-blue-500">Monti<span class="text-green-500">Casa</span> Drugstore</p>
         </div>
     </div>
     <div class="w-full bg-slate-700 mb-5">
         <div class="container w-2/3 mx-auto flex justify-center gap-12 text-slate-50 py-2">
-            <div><button onclick="window.location.href='home.php'" class="hover:text-blue-500 ease-out duration-200">Home</button></div>
-            <div><button onclick="window.location.href='find-drugs.php'" class="hover:text-blue-500 ease-out duration-200">Find Drugs</button></div>
-            <div><button onclick="window.location.href='find-company.php'" class="hover:text-blue-500 ease-out duration-200">Find Drug Company</button></div>
+            <div><button onclick="window.location.href='find-drugs.php'" class="hover:text-green-500 ease-out duration-200">Find Drugs</button></div>
+            <div><button onclick="window.location.href='find-company.php'" class="hover:text-green-500 ease-out duration-200">Find Drug Company</button></div>
         </div>
     </div>
     <div class="w-4/5 mx-auto mb-4 flex gap-5">

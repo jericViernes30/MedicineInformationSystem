@@ -5,7 +5,7 @@
         // Retrieve the user's email from the session
         $email = $_SESSION['user_email'];
         // Prepare a SELECT statement to fetch the last name of the user by email
-        $stmt = mysqli_prepare($con, "SELECT last_name, countryOfPractice FROM users WHERE email = ?");
+        $stmt = mysqli_prepare($con, "SELECT first_name, last_name, contact FROM usersss WHERE email = ?");
         mysqli_stmt_bind_param($stmt, "s", $email);
 
         // Execute the statement
@@ -15,7 +15,7 @@
         // Check if a user with the given email exists
         if (mysqli_stmt_num_rows($stmt) == 1) {
             // Bind the result variable
-            mysqli_stmt_bind_result($stmt, $last_name, $region);
+            mysqli_stmt_bind_result($stmt, $first_name, $last_name, $contact);
             mysqli_stmt_fetch($stmt);
         } else {
             // User with the given email does not exist

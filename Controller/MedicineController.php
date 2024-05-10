@@ -1,5 +1,5 @@
 <?php
-include 'Model/MedicineModel.php';
+include(__DIR__ . '/../Model/MedicineModel.php');
 
 class MedicineController {
     private $model;
