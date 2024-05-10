@@ -52,11 +52,7 @@
             echo '<script>alert("Both email and password are required."); window.location.href = "index.php";</script>';
         }
     }
-<<<<<<< HEAD
-    
-=======
 }
->>>>>>> 9a94872e617a2a505c8cb202f9261ef20c3dc9aa
 ?>
 
 <!DOCTYPE html>
