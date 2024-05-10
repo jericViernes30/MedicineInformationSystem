@@ -48,7 +48,6 @@
             <div class="container flex justify-end px-10 py-1 gap-x-24 text-sm">
                 <button onclick="openProfile()" id="nameBtn" class="flex gap-1 items-center"><i class="fa-solid fa-user text-green-500"></i><?php echo $last_name; ?>,</button>
                 <form class="flex gap-1 items-center" action="logout.php" method="POST"><i class="fa-solid fa-arrow-right-from-bracket text-green-500"></i><input type="submit" name="logout" value="Logout" class="hover:cursor-pointer"></form>
-=======
     <div class="w-full bg-slate-700">
         <div class="container w-2/3 mx-auto flex justify-center gap-12 text-slate-50 py-2">
             <div><button onclick="window.location.href='home.php'" class="hover:text-blue-500 ease-out duration-200">Home</button></div>
@@ -70,7 +69,6 @@
                 <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 h-5 w-5 text-blue-500"></i>
                 </div>
                 <button class="rounded-sm py-2 px-6 bg-slate-50">Search</button>
->>>>>>> 9a94872e617a2a505c8cb202f9261ef20c3dc9aa
             </div>
             <div class="w-full flex items-center justify-center p-2">
                 <img src="img/logo.png" alt="" class="max-w-[2%]">
